@@ -3,6 +3,7 @@ from tkinter import ttk
 import random
 from bubbleSort import bubble_sort
 from quickSort import quick_sort
+from mergeSort import start_mergeSort
 
 root = Tk()
 root.title('Interactive Sorting Visualizer by Christopher Gjersing')
@@ -63,6 +64,8 @@ def startAlgo():
         quick_sort(data, 0, len(data)-1, drawData, speedScale.get(), sizeEntry.get())
     elif algMenu.get() == 'Bubble Sort':
         bubble_sort(data, drawData, speedScale.get(), sizeEntry.get())
+    elif algMenu.get() == 'Merge Sort':
+        start_mergeSort(data, drawData, speedScale.get(), sizeEntry.get())
     drawData(data, sizeEntry.get(),['navy' for x in range(len(data))])
 
 #frame/base layout
@@ -79,7 +82,7 @@ canvas.grid(row = 1, column = 0, padx = 0, pady=0)
 Label(UI_frame, text= "Algorithm:", bg='grey').grid(row = 0, column = 0, padx=0, pady=5, sticky=W)
 
 #Algorith button, automatically set to Selection Sort
-algMenu = ttk.Combobox(UI_frame, textvariable = alg, values = ['Bubble Sort', 'Quick Sort'])
+algMenu = ttk.Combobox(UI_frame, textvariable = alg, values = ['Bubble Sort', 'Quick Sort', 'Merge Sort'])
 algMenu.grid(row = 0, column = 1, padx = 5, pady = 0)
 algMenu.current(0)
 
